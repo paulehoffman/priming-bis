@@ -61,6 +61,23 @@ zone and the necessary address information for reaching the root servers.</t>
 
 <middle>
 
+<!--
+
+- Add more about prefetching before expiration (it is as important here as anywhere)
+
+- Describe some common post-priming strategies for which RSI to use: always use the fastest vs. create buckets of fastness
+
+- Talk about the format of configuration information (only need IP addresses, but typically also includes host names because it is in master file format)
+
+- State explicitly that if the Additional section is truncated, there is no expectation that the TC bit in the response will be turned on
+
+- Use new terminology from RSSC026v2 for "root server operators" and "root server identifiers"
+
+- Point to RSSAC023v2 for history of the names and numbers of root server identifiers
+
+- Go throught he document and look how well it applies to a 'generic' root system.
+-->
+
 <section title='Introduction'>
 
 <t>Recursive DNS resolvers need a starting point to resolve queries. <xref
@@ -315,7 +332,7 @@ if its chain of queries comes to a zone that is signed, but not for those that a
 
 <section title='Acknowledgements'>
 
-<t>This document is the product of the DNSOP WG and benefitted from
+<t>RFC 8109 was the product of the DNSOP WG and benefitted from
 the reviews done there.</t>
 
 </section>
