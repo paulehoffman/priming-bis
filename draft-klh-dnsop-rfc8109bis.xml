@@ -71,10 +71,6 @@ zone and the necessary address information for reaching the root servers.</t>
 
 - State explicitly that if the Additional section is truncated, there is no expectation that the TC bit in the response will be turned on
 
-- Use new terminology from RSSC026v2 for "root server operators" and "root server identifiers"
-
-- Point to RSSAC023v2 for history of the names and numbers of root server identifiers
-
 - Go throught he document and look how well it applies to a 'generic' root system.
 -->
 
@@ -109,6 +105,14 @@ are:
 
 <t>... items will go here ...</t>
 
+<t>
+Clarified language for root server domain names as "root server identifiers".
+</t>
+
+<t>
+Added informative references to RSSAC documents.
+</t>
+
 </list></t>
 
 </section>
@@ -120,6 +124,11 @@ are:
 and “OPTIONAL” in this document are to be interpreted as described in
 BCP 14 <xref target="RFC2119"/> <xref target="RFC8174"/> when, and only when, they
 appear in all capitals, as shown here.</t>
+
+<t>
+See <xref target="RSSAC026v2"/> for terminology that relates to the root server system.
+</t>
+
 
 </section>
 
@@ -141,15 +150,21 @@ authoritative, is no longer as common.</t>
 vendor or distributor of the recursive server software. This list is usually
 correct and complete when shipped, but may become out of date over time.</t>
 
-<t>The list of root server operators and the domain name associated with each
-one has been stable since 1997. However, there are address changes for the
-root server domain names, both for IPv4 and IPv6 addresses.
-However, research shows that after those addresses change, some resolvers never
+<t>The list of the domain names for each root server are called the
+"root server identifiers".
+This list has been stable since 1997, but the IPv4 and IPv6 addresses
+for the root server identifiers sometimes change,
+Research shows that after those addresses change, some resolvers never
 get the new addresses.
 Therefore, it is important that resolvers be able to cope with change,
 even without relying upon configuration updates to be applied by their operator.
-Root server change is the main reason that resolvers need to do priming instead
-of just going from a configured list to get a full and accurate list of root servers.</t>
+Root server identifier and address changes are the main reasons that resolvers need to do priming instead
+of just going from a configured list to get a full and accurate list of root servers.
+</t>
+
+<t>
+See <xref target="RSSAC023"/>for a history of the root server system.
+</t>
 
 </section>
 
@@ -194,7 +209,7 @@ configuration.</t>
 
 <section title='Target Selection'>
 
-<t>In order to spread the load across all the root server domain names, the
+<t>In order to spread the load across all the root server identifers, the
 recursive resolver SHOULD select the target for a priming query randomly from
 the list of addresses. The recursive resolver might choose either IPv4 or IPv6
 addresses based on its knowledge of whether the system on which it is running
@@ -324,11 +339,25 @@ if its chain of queries comes to a zone that is signed, but not for those that a
    <?rfc include="reference.RFC.8174.xml"?>
 </references>
 
-<!--
 <references title="Informative References">
+
+<reference anchor="RSSAC023"
+target="https://www.icann.org/en/system/files/files/rssac-023-04nov16-en.pdf">
+<front>
+<title>History of the Root Server System</title>
+<author/>
+<date year="2016"/></front>
+</reference>
+   
+<reference anchor="RSSAC026v2"
+target="https://www.icann.org/en/system/files/files/rssac-026-lexicon-12mar20-en.pdf">
+<front>
+<title>RSSAC Lexicon</title>
+<author/>
+<date year="2020"/></front>
+</reference>
    
 </references>
--->
 
 <section title='Acknowledgements'>
 
