@@ -109,6 +109,8 @@ are:
 
 <t>... items will go here ...</t>
 
+<t>Added short discussion about this document and private DNS.</t>
+
 </list></t>
 
 </section>
@@ -150,6 +152,10 @@ Therefore, it is important that resolvers be able to cope with change,
 even without relying upon configuration updates to be applied by their operator.
 Root server change is the main reason that resolvers need to do priming instead
 of just going from a configured list to get a full and accurate list of root servers.</t>
+
+<t>Although this document is targeted at the global DNS, it also could apply to a private
+DNS as well. These terms are defined in <xref target="RFC8499"/>.</t>
+
 
 </section>
 
@@ -322,6 +328,7 @@ if its chain of queries comes to a zone that is signed, but not for those that a
    <?rfc include="reference.RFC.6891.xml"?>
    <?rfc include="reference.RFC.8109.xml"?>
    <?rfc include="reference.RFC.8174.xml"?>
+   <?rfc include="reference.RFC.8499.xml"?>
 </references>
 
 <!--
