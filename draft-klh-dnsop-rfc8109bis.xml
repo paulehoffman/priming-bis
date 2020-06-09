@@ -109,6 +109,8 @@ are:
 
 <t>... items will go here ...</t>
 
+<t>Added section on the content of priming information.</t>
+
 </list></t>
 
 </section>
@@ -150,6 +152,21 @@ Therefore, it is important that resolvers be able to cope with change,
 even without relying upon configuration updates to be applied by their operator.
 Root server change is the main reason that resolvers need to do priming instead
 of just going from a configured list to get a full and accurate list of root servers.</t>
+
+<section title="Content of Priming Information">
+
+<t>As described above, the configuration for priming is a list of IP addreses.
+The priming information in software may be in any format that gives he software the
+addresses associated with at least some of the root server identifiers.</t>
+
+<t>Some software has configuration that also contains the root server identifiers,
+sometimes as comments and sometimes as data consumed by the software.
+In fact, IANA's "Root Hints File" at &lt;https://www.internic.net/domain/named.root&gt;
+is in DNS master file format, including the root server identifiers.
+Although there is no harm to adding such information, it is not useful in
+the root priming process.</t>
+
+</section>
 
 </section>
 
