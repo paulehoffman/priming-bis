@@ -139,7 +139,7 @@ and their addresses.</t>
 The scenario used in that description, that of a recursive server that is also
 authoritative, is no longer as common.</t>
 
-<t>The configured list of names and IP addresses for the root servers usually comes from the
+<t>The configured list of IP addresses for the root servers usually comes from the
 vendor or distributor of the recursive server software. This list is usually
 correct and complete when shipped, but may become out of date over time.</t>
 
@@ -155,7 +155,7 @@ of just going from a configured list to get a full and accurate list of root ser
 
 <section title="Content of Priming Information">
 
-<t>As described above, the configuration for priming is a list of root server names and IP addresses.
+<t>As described above, the configuration for priming is a list of IP addresses.
 The priming information in software may be in any format that gives he software the
 addresses associated with at least some of the root server identifiers.</t>
 
