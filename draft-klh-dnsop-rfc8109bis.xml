@@ -111,6 +111,8 @@ are:
 
 <t>Added short discussion about this document and private DNS.</t>
 
+  <t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
+
 </list></t>
 
 </section>
@@ -293,6 +295,11 @@ servers that respond with a fixed order of addresses in the Additional section. 
 the recursive resolver needs to issue direct queries for A and AAAA RRsets for the
 remaining names. Currently, these RRsets would be authoritatively available from the root
 name servers.</t>
+
+<t>If the Additional section is truncated, there is no expectation that the TC bit in the
+response will be set to 1. At the time that this document is written, many of the
+root servers are not setting the TC bit on responses with a truncated Additional section.</t>
+
 
 
 </section>
