@@ -281,7 +281,7 @@ name servers.</t>
 
 <t>If the Additional section is truncated, there is no expectation that the TC bit in the
 response will be set to 1. At the time that this document is written, many of the
-root servers are not setting the TC bit on truncated responses.</t>
+root servers are not setting the TC bit on responses with a truncated Additional section.</t>
 
 
 
