@@ -103,7 +103,7 @@ are:
 
 <list style="symbols">
 
-<t>... items will go here ...</t>
+<t>Added section on the content of priming information.</t>
 
 <t>Clarified language for root server domain names as "root server identifiers".</t>
 
@@ -111,7 +111,7 @@ are:
 
 <t>Added short discussion about this document and private DNS.</t>
 
-  <t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
+<t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
 
 </list></t>
 
@@ -169,6 +169,21 @@ See <xref target="RSSAC023"/>for a history of the root server system.
 <t>Although this document is targeted at the global DNS, it also could apply to a private
 DNS as well. These terms are defined in <xref target="RFC8499"/>.</t>
 
+
+<section title="Content of Priming Information">
+
+<t>As described above, the configuration for priming is a list of IP addresses.
+The priming information in software may be in any format that gives he software the
+addresses associated with at least some of the root server identifiers.</t>
+
+<t>Some software has configuration that also contains the root server identifiers,
+sometimes as comments and sometimes as data consumed by the software.
+In fact, IANA's "Root Hints File" at &lt;https://www.internic.net/domain/named.root&gt;
+is in DNS master file format, including the root server identifiers.
+Although there is no harm to adding such information, it is not useful in
+the root priming process.</t>
+
+</section>
 
 </section>
 
