@@ -150,7 +150,7 @@ authoritative, is no longer as common.</t>
 vendor or distributor of the recursive server software. This list is usually
 correct and complete when shipped, but may become out of date over time.</t>
 
-<t>The list of the domain names for each root server are called the
+<t>The domain names for the root servers are called the
 "root server identifiers".
 This list has been stable since 1997, but the IPv4 and IPv6 addresses
 for the root server identifiers sometimes change,
