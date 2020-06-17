@@ -178,8 +178,10 @@ addresses associated with at least some of the root server identifiers.</t>
 
 <t>Some software has configuration that also contains the root server identifiers,
 sometimes as comments and sometimes as data consumed by the software.
-In fact, IANA's "Root Hints File" at &lt;https://www.internic.net/domain/named.root&gt;
-is in DNS master file format, including the root server identifiers.
+For example, IANA's "Root Hints File" at &lt;https://www.internic.net/domain/named.root&gt;
+is derived directly from the root zone and contains all of the addresses
+of the root server identifiers found in the root zone,
+It is in DNS master file format, and includes the root server identifiers.
 Although there is no harm to adding such information, it is not useful in
 the root priming process.</t>
 
