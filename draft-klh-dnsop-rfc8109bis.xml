@@ -67,11 +67,6 @@ zone and the necessary address information for reaching the root servers.</t>
 
 - Describe some common post-priming strategies for which RSI to use: always use the fastest vs. create buckets of fastness
 
-- Talk about the format of configuration information (only need IP addresses, but typically also includes host names because it is in master file format)
-
-- State explicitly that if the Additional section is truncated, there is no expectation that the TC bit in the response will be turned on
-
-- Go throught he document and look how well it applies to a 'generic' root system.
 -->
 
 <section title='Introduction'>
@@ -105,13 +100,13 @@ are:
 
 <t>Added section on the content of priming information.</t>
 
+<t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
+
 <t>Clarified language for root server domain names as "root server identifiers".</t>
 
 <t>Added informative references to RSSAC documents.</t>
 
 <t>Added short discussion about this document and private DNS.</t>
-
-<t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
 
 </list></t>
 
