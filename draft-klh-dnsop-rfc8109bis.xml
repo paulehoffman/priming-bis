@@ -158,7 +158,7 @@ of just going from a configured list to get a full and accurate list of root ser
 </t>
 
 <t>
-See <xref target="RSSAC023"/>for a history of the root server system.
+See <xref target="RSSAC023v2"/>for a history of the root server system.
 </t>
 
 <t>Although this document is targeted at the global DNS, it also could apply to a private
@@ -363,8 +363,8 @@ if its chain of queries comes to a zone that is signed, but not for those that a
 
 <references title="Informative References">
 
-<reference anchor="RSSAC023"
-target="https://www.icann.org/en/system/files/files/rssac-023-04nov16-en.pdf">
+<reference anchor="RSSAC023v2"
+target="https://www.icann.org/en/system/files/files/rssac-023-17jun20-en.pdf">
 <front>
 <title>History of the Root Server System</title>
 <author/>
