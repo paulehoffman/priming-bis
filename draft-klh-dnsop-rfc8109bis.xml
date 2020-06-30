@@ -12,7 +12,7 @@
 <?rfc toc='no'?>
 <?rfc tocindent='no'?>
 
-<rfc docName="draft-klh-dnsop-rfc8109bis" ipr="trust200902" category="bcp">
+<rfc docName="draft-klh-dnsop-rfc8109bis" ipr="trust200902" category="bcp" obsoletes="8109">
 
 <front>
 
@@ -61,14 +61,6 @@ zone and the necessary address information for reaching the root servers.</t>
 
 <middle>
 
-<!--
-
-- Add more about prefetching before expiration (it is as important here as anywhere)
-
-- Describe some common post-priming strategies for which RSI to use: always use the fastest vs. create buckets of fastness
-
--->
-
 <section title='Introduction'>
 
 <t>Recursive DNS resolvers need a starting point to resolve queries. <xref
@@ -107,6 +99,8 @@ are:
 <t>Added informative references to RSSAC documents.</t>
 
 <t>Added short discussion about this document and private DNS.</t>
+
+<t>Future changes noted in the current text with [[ text like this ]].</t>
 
 </list></t>
 
@@ -186,14 +180,9 @@ the root priming process.</t>
 
 <section title='Priming Queries'>
 
-<t>\[\[
-Even with the disclaimer in the Introduction, the following paragraphs should probably
-say ", and has a QCLASS of IN".
-\]\]</t>
-
 <t>A priming query is a DNS query used to get the root server information in a resolver.
-It has a QNAME of "." and a QTYPE of NS, and
-is sent to one of the addresses in the configuration for the recursive resolver.
+It has a QNAME of ".", a QTYPE of NS, and a QCLASS of IN;
+it is sent to one of the addresses in the configuration for the recursive resolver.
 The priming query can be sent over either UDP or TCP. If the query is sent over UDP,
 the source port SHOULD be randomly selected (see <xref target='RFC5452'/>). The
 Recursion Desired (RD) bit MAY be set to 0 or 1, although the meaning of it being set to 1 is
@@ -217,6 +206,14 @@ expires those NS records according to their TTL values.
 (Note that a recursive resolver MAY
 pre-fetch the NS RRset before it expires.)</t>
 
+<t>
+[[
+Need to discuss: when pre-fetching, does the resolver send the queries
+to the addresses associated with the . / NS RRset in the cache,
+or does the resolver go back to the addresses in the configuration?
+]]
+</t>
+
 <t>If a priming query does not get a response, the recursive
 resolver needs to retry the query with a different target address from the
 configuration.</t>
@@ -225,7 +222,7 @@ configuration.</t>
 
 <section title='Target Selection'>
 
-<t>In order to spread the load across all the root server identifers, the
+<t>In order to spread the load across all the root server identifiers, the
 recursive resolver SHOULD select the target for a priming query randomly from
 the list of addresses. The recursive resolver might choose either IPv4 or IPv6
 addresses based on its knowledge of whether the system on which it is running
@@ -242,13 +239,13 @@ SHOULD be used for priming.</t>
 
 <section title='DNSSEC with Priming Queries' anchor="dnssec_prime">
 
-<t>\[\[
+<t>[[
 This section talks about sending the DO bit, but does not actually talk about
 validating the response to the priming query. This became important after
 the root KSK rollover in 2018 because some resolvers apparently were validating
 and only had the old KSK, but were still sending RFC 8145 telemetry even after failing
 to validate their priming response.
-\]\]</t>
+]]</t>
 
 <t>The resolver MAY set the DNSSEC OK (DO) bit. At the time of publication,
 there is little use to performing DNSSEC validation on the priming query.
@@ -312,9 +309,19 @@ name servers.</t>
 response will be set to 1. At the time that this document is written, many of the
 root servers are not setting the TC bit on responses with a truncated Additional section.</t>
 
-
+</section>
 
 </section>
+
+<section title='Post-Priming Strategies'>
+
+<t>
+[[
+Describe some common post-priming strategies for picking which RSI to use
+for queries sent to the root, such as "always use the fastest",
+"create buckets of fastness and pick randomly in the buckets", and others.
+]]
+</t>
 
 </section>
 
