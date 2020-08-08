@@ -94,6 +94,11 @@ are:
 
 <t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
 
+<t>Changed "man-in-the-middle" to "machine-in-the-middle" to be both
+less sexist and more technically accurate.</t>
+
+<t>Clarified that there are other effects of machine-in-the-middle attacks.</t>
+
 <t>Clarified language for root server domain names as "root server identifiers".</t>
 
 <t>Added informative references to RSSAC documents.</t>
@@ -255,12 +260,14 @@ authoritative for this zone, allowing priming responses to include the appropria
 name server A and AAAA RRsets. But, because the "root-servers.net" zone is not currently
 signed, these RRsets cannot be validated.</t>
 
-<t>A man-in-the-middle attack on the priming query could direct a resolver to a rogue root
+<t>A machine-in-the-middle attack on the priming query could direct a resolver to a rogue root
 name server.  Note, however, that a validating resolver will not accept responses from
 rogue root name servers if they are different from the real responses because the resolver
 has a trust anchor for the root and the answers from the root are signed. Thus, if there
-is a man-in-the-middle attack on the priming query, the only result for a validating
-resolver will be a denial of service, not the resolver's accepting the bad responses.</t>
+is a machine-in-the-middle attack on the priming query, the results for a validating
+resolver could be a denial of service, 
+or the attacker seeing queries while returning good answers,
+but not the resolver's accepting the bad responses.</t>
 
 <t>If the "root-servers.net" zone is later signed, or if the root servers are named in a
 different zone and that zone is signed, having DNSSEC validation for the priming queries
