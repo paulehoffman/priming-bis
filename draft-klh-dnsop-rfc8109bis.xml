@@ -132,9 +132,9 @@ See <xref target="RSSAC026v2"/> for terminology that relates to the root server 
 
 <t>Priming is the act of finding the list of root
 servers from a configuration that lists some or all of the purported IP
-addresses of some or all of those root servers. A recursive resolver starts with
-no information about the root servers, and ends up with a list of their names
-and their addresses.</t>
+addresses of some or all of those root servers.
+In priming, a recursive resolver starts with no cached information about the root servers,
+and finishes with a full list of their names and their addresses in its cache.</t>
 
 <t>Priming is described in Sections 5.3.2 and 5.3.3 of <xref target='RFC1034'/>.
 The scenario used in that description, that of a recursive server that is also
