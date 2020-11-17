@@ -9,10 +9,10 @@
 <?rfc symrefs='yes'?>
 <?rfc sortrefs='yes'?>
 <?rfc subcompact='no'?>
-<?rfc toc='no'?>
+<?rfc toc='yes'?>
 <?rfc tocindent='no'?>
 
-<rfc docName="draft-klh-dnsop-rfc8109bis" ipr="trust200902" category="bcp" obsoletes="8109">
+<rfc docName="draft-klh-dnsop-rfc8109bis" ipr="trust200902" category="bcp" obsoletes="8109" consensus="yes">
 
 <front>
 
