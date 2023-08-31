@@ -167,7 +167,7 @@ DNS as well. These terms are defined in <xref target="RFC8499"/>.</t>
 <section title="Content of Priming Information">
 
 <t>As described above, the configuration for priming is a list of IP addresses.
-The priming information in software may be in any format that gives he software the
+The priming information in software may be in any format that gives the software the
 addresses associated with at least some of the root server identifiers.</t>
 
 <t>Some software has configuration that also contains the root server identifiers,
@@ -206,7 +206,7 @@ DNSSEC OK (DO) bit (defined in <xref target='RFC4033'/>).</t>
 <t>The recursive resolver SHOULD send a priming query only when it is needed,
 such as when the resolver starts with an empty cache and when the NS RRset for
 the root zone has expired.
-Because the NS records for the root are not special, the recursive resolver
+Because the NS records for the root zone are not special, the recursive resolver
 expires those NS records according to their TTL values.
 (Note that a recursive resolver MAY
 pre-fetch the NS RRset before it expires.)</t>
@@ -254,7 +254,7 @@ to validate their priming response.
 
 <t>The resolver MAY set the DNSSEC OK (DO) bit. At the time of publication,
 there is little use to performing DNSSEC validation on the priming query.
-Currently, all root name server names end in "root-servers.net" and the AAAA and A RRsets
+Currently, all root server names end in "root-servers.net" and the AAAA and A RRsets
 for the root server names reside in the "root-servers.net" zone. All root servers are also
 authoritative for this zone, allowing priming responses to include the appropriate root
 name server A and AAAA RRsets. But, because the "root-servers.net" zone is not currently
@@ -262,7 +262,7 @@ signed, these RRsets cannot be validated.</t>
 
 <t>A machine-in-the-middle attack on the priming query could direct a resolver to a rogue root
 name server.  Note, however, that a validating resolver will not accept responses from
-rogue root name servers if they are different from the real responses because the resolver
+rogue root servers if they are different from the real responses because the resolver
 has a trust anchor for the root and the answers from the root are signed. Thus, if there
 is a machine-in-the-middle attack on the priming query, the results for a validating
 resolver could be a denial of service, 
@@ -280,7 +280,7 @@ might be valuable.</t>
 
 <section title='Priming Responses'>
 
-<t>A priming query is a normal DNS query. Thus, a root name server cannot
+<t>A priming query is a normal DNS query. Thus, a root server cannot
 distinguish a priming query from any other query for the root NS RRset. Thus,
 the root server's response will also be a normal DNS response.</t>
 
@@ -290,7 +290,7 @@ the root server's response will also be a normal DNS response.</t>
 Authoritative Answer (AA) bit set. Also, it is expected to have an NS RRset in the Answer section (because the
 NS RRset originates from the root zone), and an empty Authority section (because the
 NS RRset already appears in the Answer section). There will also be an Additional section with A
-and/or AAAA RRsets for the root name servers pointed at by the NS RRset.</t>
+and/or AAAA RRsets for the root servers pointed at by the NS RRset.</t>
 
 <t>Resolver software SHOULD treat the response to the priming query as a normal
 DNS response, just as it would use any other data fed to its cache. Resolver
@@ -301,7 +301,7 @@ because, historically, some root servers have returned fewer.</t>
 
 <section title='Completeness of the Response' anchor='primrespsize'>
 
-<t>There are currently 13 root servers. All have one IPv4 address and one IPv6 address.
+<t>There are currently 13 root servers. Each has one IPv4 address and one IPv6 address.
 Not even counting the NS RRset, the combined size of all the A and AAAA RRsets
 exceeds the original 512-octet payload limit from <xref target="RFC1035"/>.</t>
 
