@@ -244,14 +244,6 @@ SHOULD be used for priming.</t>
 
 <section title='DNSSEC with Priming Queries' anchor="dnssec_prime">
 
-<t>[[
-This section talks about sending the DO bit, but does not actually talk about
-validating the response to the priming query. This became important after
-the root KSK rollover in 2018 because some resolvers apparently were validating
-and only had the old KSK, but were still sending RFC 8145 telemetry even after failing
-to validate their priming response.
-]]</t>
-
 <t>The resolver MAY set the DNSSEC OK (DO) bit. At the time of publication,
 there is little use to performing DNSSEC validation on the priming query.
 Currently, all root server names end in "root-servers.net" and the AAAA and A RRsets
@@ -271,7 +263,9 @@ but not the resolver's accepting the bad responses.</t>
 
 <t>If the "root-servers.net" zone is later signed, or if the root servers are named in a
 different zone and that zone is signed, having DNSSEC validation for the priming queries
-might be valuable.</t>
+might be valuable.
+The benefits and costs of resolvers validating the responses will depend heavily on
+the naming scheme used.</t>
 
 
 </section>
