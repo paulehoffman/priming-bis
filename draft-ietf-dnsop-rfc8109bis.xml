@@ -12,7 +12,7 @@
 <?rfc toc='yes'?>
 <?rfc tocindent='no'?>
 
-<rfc docName="draft-ietf-dnsop-rfc8109bis-00" ipr="trust200902" category="bcp" obsoletes="8109" consensus="yes">
+<rfc docName="draft-ietf-dnsop-rfc8109bis-01" ipr="trust200902" category="bcp" obsoletes="8109" consensus="yes">
 
 <front>
 
@@ -147,7 +147,7 @@ correct and complete when shipped, but may become out of date over time.</t>
 <t>The domain names for the root servers are called the
 "root server identifiers".
 This list has been stable since 1997, but the IPv4 and IPv6 addresses
-for the root server identifiers sometimes change,
+for the root server identifiers sometimes change.
 Research shows that after those addresses change, some resolvers never
 get the new addresses.
 Therefore, it is important that resolvers be able to cope with change,
@@ -157,7 +157,7 @@ of just going from a configured list to get a full and accurate list of root ser
 </t>
 
 <t>
-See <xref target="RSSAC023v2"/>for a history of the root server system.
+See <xref target="RSSAC023v2"/> for a history of the root server system.
 </t>
 
 <t>Although this document is targeted at the global DNS, it also could apply to a private
@@ -174,7 +174,7 @@ addresses associated with at least some of the root server identifiers.</t>
 sometimes as comments and sometimes as data consumed by the software.
 For example, IANA's "Root Hints File" at &lt;https://www.internic.net/domain/named.root&gt;
 is derived directly from the root zone and contains all of the addresses
-of the root server identifiers found in the root zone,
+of the root server identifiers found in the root zone.
 It is in DNS master file format, and includes the root server identifiers.
 Although there is no harm to adding such information, it is not useful in
 the root priming process.</t>
@@ -204,7 +204,7 @@ DNSSEC OK (DO) bit (defined in <xref target='RFC4033'/>).</t>
 <section title='Repeating Priming Queries'>
 
 <t>The recursive resolver SHOULD send a priming query only when it is needed,
-such as when the resolver starts with an empty cache and when the NS RRset for
+such as when the resolver starts with an empty cache or when the NS RRset for
 the root zone has expired.
 Because the NS records for the root zone are not special, the recursive resolver
 expires those NS records according to their TTL values.
@@ -220,7 +220,7 @@ or does the resolver go back to the addresses in the configuration?
 </t>
 
 <t>If a priming query does not get a response, the recursive
-resolver needs to retry the query with a different target address from the
+resolver MUST retry the query with a different target address from the
 configuration.</t>
 
 </section>
@@ -246,11 +246,11 @@ SHOULD be used for priming.</t>
 
 <t>The resolver MAY set the DNSSEC OK (DO) bit. At the time of publication,
 there is little use to performing DNSSEC validation on the priming query.
-Currently, all root server names end in "root-servers.net" and the AAAA and A RRsets
+At the time this document is pulished, all root server names end in "root-servers.net" and the AAAA and A RRsets
 for the root server names reside in the "root-servers.net" zone. All root servers are also
 authoritative for this zone, allowing priming responses to include the appropriate root
-name server A and AAAA RRsets. But, because the "root-servers.net" zone is not currently
-signed, these RRsets cannot be validated.</t>
+name server A and AAAA RRsets. But, because the "root-servers.net" zone is not
+signed at the time this document is pulished, these RRsets cannot be validated.</t>
 
 <t>A machine-in-the-middle attack on the priming query could direct a resolver to a rogue root
 name server.  Note, however, that a validating resolver will not accept responses from
@@ -280,22 +280,23 @@ the root server's response will also be a normal DNS response.</t>
 
 <section title='Expected Properties of the Priming Response'>
 
-<t>The priming response is expected to have an RCODE of NOERROR, and to have the
-Authoritative Answer (AA) bit set. Also, it is expected to have an NS RRset in the Answer section (because the
+<t>The priming response MUST have an RCODE of NOERROR, and MUST have the
+Authoritative Answer (AA) bit set. Also, it MUST have an NS RRset in the Answer section (because the
 NS RRset originates from the root zone), and an empty Authority section (because the
 NS RRset already appears in the Answer section). There will also be an Additional section with A
 and/or AAAA RRsets for the root servers pointed at by the NS RRset.</t>
 
 <t>Resolver software SHOULD treat the response to the priming query as a normal
 DNS response, just as it would use any other data fed to its cache. Resolver
-software SHOULD NOT expect exactly 13 NS RRs
+software SHOULD NOT expect 13 NS RRs
 because, historically, some root servers have returned fewer.</t>
 
 </section>
 
 <section title='Completeness of the Response' anchor='primrespsize'>
 
-<t>There are currently 13 root servers. Each has one IPv4 address and one IPv6 address.
+<t>At the time this document is pulished,
+there are 13 root servers. Each has one IPv4 address and one IPv6 address.
 Not even counting the NS RRset, the combined size of all the A and AAAA RRsets
 exceeds the original 512-octet payload limit from <xref target="RFC1035"/>.</t>
 
@@ -303,7 +304,7 @@ exceeds the original 512-octet payload limit from <xref target="RFC1035"/>.</t>
 address information, re-issuing of the priming query does not help with those root name
 servers that respond with a fixed order of addresses in the Additional section.  Instead,
 the recursive resolver needs to issue direct queries for A and AAAA RRsets for the
-remaining names. Currently, these RRsets would be authoritatively available from the root
+remaining names. At the time this document is pulished, these RRsets would be authoritatively available from the root
 name servers.</t>
 
 <t>If the Additional section is truncated, there is no expectation that the TC bit in the
