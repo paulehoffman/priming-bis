@@ -101,6 +101,8 @@ less sexist and more technically accurate.</t>
 
 <t>Clarified language for root server domain names as "root server identifiers".</t>
 
+<t>Added short discussion of post-priming strategies.</t>
+
 <t>Added informative references to RSSAC documents.</t>
 
 <t>Added short discussion about this document and private DNS.</t>
@@ -319,13 +321,14 @@ root servers are not setting the TC bit on responses with a truncated Additional
 
 <section title='Post-Priming Strategies'>
 
-<t>
-[[
-Describe some common post-priming strategies for picking which RSI to use
-for queries sent to the root, such as "always use the fastest",
-"create buckets of fastness and pick randomly in the buckets", and others.
-]]
-</t>
+<t>When a resolver that has a zone's NS RRset in cache, and it gets a query
+for a domain in that zone that cannot be answered from its cache,
+the resolver has to choose which  NS to send queries to.
+(This statement is as true for the root zone as for any other zone in the DNS.)
+Two common strategies for choosing are "determine the fastest nameserver and always use it" and
+"create buckets of fastness and pick randomly in the buckets".
+This document gives no preference to any particular strategy other than to suggest that
+resolvers not treat the root zone as special for this decision.</t>
 
 </section>
 
