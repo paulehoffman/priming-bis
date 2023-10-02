@@ -321,9 +321,9 @@ root servers are not setting the TC bit on responses with a truncated Additional
 
 <section title='Post-Priming Strategies'>
 
-<t>When a resolver that has a zone's NS RRset in cache, and it gets a query
+<t>When a resolver has a zone's NS RRset in cache, and it gets a query
 for a domain in that zone that cannot be answered from its cache,
-the resolver has to choose which  NS to send queries to.
+the resolver has to choose which NS to send queries to.
 (This statement is as true for the root zone as for any other zone in the DNS.)
 Two common strategies for choosing are "determine the fastest nameserver and always use it" and
 "create buckets of fastness and pick randomly in the buckets".
