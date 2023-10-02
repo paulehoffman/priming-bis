@@ -217,8 +217,8 @@ expires those NS records according to their TTL values.
 (Note that a recursive resolver MAY
 pre-fetch the NS RRset before it expires.)</t>
 
-<t>If a resolver choosed to pre-fetch the root NS RRset before that RRset has expired in its cache,
-it needs to choose whether to use use the addresses for the root NS RRset that it already has in its cache
+<t>If a resolver chooses to pre-fetch the root NS RRset before that RRset has expired in its cache,
+it needs to choose whether to use the addresses for the root NS RRset that it already has in its cache
 or to use the addresses it has in its configuration.
 Such a resolver SHOULD send queries to the addresses in its cache in order to reduce the chance of delay
 due to out-of-date addresses in its configuration.</t>
