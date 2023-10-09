@@ -251,11 +251,11 @@ SHOULD be used for priming.</t>
 
 <t>The resolver MAY set the DNSSEC OK (DO) bit. At the time of publication,
 there is little use to performing DNSSEC validation on the priming query.
-At the time this document is pulished, all root server names end in "root-servers.net" and the AAAA and A RRsets
+At the time this document is published, all root server names end in "root-servers.net" and the AAAA and A RRsets
 for the root server names reside in the "root-servers.net" zone. All root servers are also
 authoritative for this zone, allowing priming responses to include the appropriate root
 name server A and AAAA RRsets. But, because the "root-servers.net" zone is not
-signed at the time this document is pulished, these RRsets cannot be validated.</t>
+signed at the time this document is published, these RRsets cannot be validated.</t>
 
 <t>A machine-in-the-middle attack on the priming query could direct a resolver to a rogue root
 name server.  Note, however, that a validating resolver will not accept responses from
@@ -300,7 +300,7 @@ because, historically, some root servers have returned fewer.</t>
 
 <section title='Completeness of the Response' anchor='primrespsize'>
 
-<t>At the time this document is pulished,
+<t>At the time this document is published,
 there are 13 root servers. Each has one IPv4 address and one IPv6 address.
 Not even counting the NS RRset, the combined size of all the A and AAAA RRsets
 exceeds the original 512-octet payload limit from <xref target="RFC1035"/>.</t>
@@ -309,7 +309,7 @@ exceeds the original 512-octet payload limit from <xref target="RFC1035"/>.</t>
 address information, re-issuing of the priming query does not help with those root name
 servers that respond with a fixed order of addresses in the Additional section.  Instead,
 the recursive resolver needs to issue direct queries for A and AAAA RRsets for the
-remaining names. At the time this document is pulished, these RRsets would be authoritatively available from the root
+remaining names. At the time this document is published, these RRsets would be authoritatively available from the root
 name servers.</t>
 
 <t>If the Additional section is truncated, there is no expectation that the TC bit in the
