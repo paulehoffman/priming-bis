@@ -95,6 +95,8 @@ are:
 
 <t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
 
+<t>Added paragraph about RFC 9471 and requirements on authoritative servers and the TC bit.</t>
+
 <t>Changed "man-in-the-middle" to "machine-in-the-middle" to be both
 less sexist and more technically accurate.</t>
 
@@ -312,10 +314,14 @@ the recursive resolver needs to issue direct queries for A and AAAA RRsets for t
 remaining names. At the time this document is published, these RRsets would be authoritatively available from the root
 name servers.</t>
 
-<!-- This expectation below is in contradiction to RFC 9471 -->
 <t>If the Additional section omits some root server addresses, there is no expectation that the TC bit in the
 response will be set to 1. At the time that this document is written, many of the
 root servers are not setting the TC bit when omitting addresses from the Additional section.</t>
+
+<t>Note that <xref target="RFC9471"/> updates <xref target="RFC1035"/> with respect to the use of the TC bit.
+It says "If message size constraints prevent the inclusion of all glue records for in-domain name servers,
+the server must set the TC (Truncated) flag to inform the client that the response is incomplete
+and that the client should use another transport to retrieve the full response."</t>
 
 </section>
 
@@ -375,6 +381,7 @@ if its chain of queries comes to a zone that is signed, but not for those that a
    <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8109.xml"/>
    <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
    <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8499.xml"/>
+   <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9471.xml"/>
 </references>
 
 <references title="Informative References">
@@ -399,8 +406,8 @@ target="https://www.icann.org/en/system/files/files/rssac-026-lexicon-12mar20-en
 
 <section title='Acknowledgements'>
 
-<t>RFC 8109 was the product of the DNSOP WG and benefitted from
-the reviews done there.</t>
+<t>RFC 8109 was the product of the DNSOP WG and benefitted from the reviews done there.
+This document also benefitted from review by Duane Wessels.</t>
 
 </section>
 
