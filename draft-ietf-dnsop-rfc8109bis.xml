@@ -312,9 +312,10 @@ the recursive resolver needs to issue direct queries for A and AAAA RRsets for t
 remaining names. At the time this document is published, these RRsets would be authoritatively available from the root
 name servers.</t>
 
-<t>If the Additional section is truncated, there is no expectation that the TC bit in the
+<!-- This expectation below is in contradiction to RFC 9471 -->
+<t>If the Additional section omits some root server addresses, there is no expectation that the TC bit in the
 response will be set to 1. At the time that this document is written, many of the
-root servers are not setting the TC bit on responses with a truncated Additional section.</t>
+root servers are not setting the TC bit when omitting addresses from the Additional section.</t>
 
 </section>
 
