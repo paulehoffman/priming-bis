@@ -116,6 +116,8 @@ less sexist and more technically accurate.</t>
 
 <t>Clarified that "currently" means at the time that this document is published.</t>
 
+<t>Added a note about priming and RFC 8806.</t>
+
 </list></t>
 
 </section>
@@ -172,6 +174,9 @@ See <xref target="RSSAC023v2"/> for a history of the root server system.
 <t>Although this document is targeted at the global DNS, it also could apply to a private
 DNS as well. These terms are defined in <xref target="RFC8499"/>.</t>
 
+<t>Some systems serve a copy of the full root zone on the same server as the resolver,
+such as is described in <xref target="RFC8806"/>.
+In such a setup, the resolver primes its cache using the same methods as described in the rest of this document.</t>
 
 <section title="Content of Priming Information">
 
@@ -358,12 +363,6 @@ for Top-Level Domains (TLDs), because the root is the highest node of the DNS. S
 
 <t>In both of the scenarios above, a validating resolver will be able to detect the attack
 if its chain of queries comes to a zone that is signed, but not for those that are unsigned.</t>
-
-<t>This document does not cover the use of (or the need for) priming when
-serving a copy of the full root zone on the same server as the resolver,
-such as is described in <xref target="RFC8806"/>.
-In such a setup, the resolver never really primes its cache because the
-cache is full as soon as the resolver pulls down a new complete root zone.</t>
 
 </section>
 
