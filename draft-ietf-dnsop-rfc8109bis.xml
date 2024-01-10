@@ -110,6 +110,8 @@ less sexist and more technically accurate.</t>
 
 <t>Added short discussion about this document and private DNS.</t>
 
+<t>Clarified that machine-in-the-middle attacks could be successful for non-signed TLDs.</t>
+
 <t>Added discussion of where resolvers that pre-fetch should get the root NS addresses.</t>
 
 <t>Elevated the expectations in "Expected Properties of the Priming Response" to MUST-level.</t>
@@ -146,6 +148,7 @@ In priming, a recursive resolver starts with no cached information about the roo
 and finishes with a full list of their names and their addresses in its cache.</t>
 
 <t>Priming is described in Sections 5.3.2 and 5.3.3 of <xref target='RFC1034'/>.
+(It is called "SBELT", a "safety belt" structure, in that document.)
 The scenario used in that description, that of a recursive server that is also
 authoritative, is no longer as common.</t>
 
@@ -260,13 +263,13 @@ name server A and AAAA RRsets. But, because the "root-servers.net" zone is not
 signed at the time this document is published, these RRsets cannot be validated.</t>
 
 <t>A machine-in-the-middle attack on the priming query could direct a resolver to a rogue root
-name server.  Note, however, that a validating resolver will not accept responses from
+name server.  Note, however, that a validating resolver will not accept responses for signed TLDs from
 rogue root servers if they are different from the real responses because the resolver
 has a trust anchor for the root and the answers from the root are signed. Thus, if there
 is a machine-in-the-middle attack on the priming query, the results for a validating
-resolver could be a denial of service, 
+resolver for signed TLDs could be a denial of service, 
 or the attacker seeing queries while returning good answers,
-but not the resolver's accepting the bad responses.</t>
+but not the resolver's accepting the bad responses; however, for unsigned TLDs, the attack would be successful.</t>
 
 <t>If the "root-servers.net" zone is later signed, or if the root servers are named in a
 different zone and that zone is signed, having DNSSEC validation for the priming queries
@@ -304,7 +307,7 @@ because, historically, some root servers have returned fewer.</t>
 
 <t>At the time this document is published,
 there are 13 root servers. Each has one IPv4 address and one IPv6 address.
-Not even counting the NS RRset, the combined size of all the A and AAAA RRsets
+The combined size of all the A and AAAA RRsets
 exceeds the original 512-octet payload limit from <xref target="RFC1035"/>.</t>
 
 <t>In the event of a response where the Additional section omits certain root server
@@ -333,7 +336,7 @@ and that the client should use another transport to retrieve the full response."
 for a domain in that zone that cannot be answered from its cache,
 the resolver has to choose which NS to send queries to.
 (This statement is as true for the root zone as for any other zone in the DNS.)
-Two common strategies for choosing are "determine the fastest nameserver and always use it" and
+Two common strategies for choosing are "determine the fastest name server and always use it" and
 "create buckets of fastness and pick randomly in the buckets".
 This document gives no preference to any particular strategy other than to suggest that
 resolvers not treat the root zone as special for this decision.</t>
