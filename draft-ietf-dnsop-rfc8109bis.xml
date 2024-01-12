@@ -116,6 +116,8 @@ less sexist and more technically accurate.</t>
 
 <t>Clarified that "currently" means at the time that this document is published.</t>
 
+<t>Added a note about priming and RFC 8806.</t>
+
 </list></t>
 
 </section>
@@ -172,6 +174,9 @@ See <xref target="RSSAC023v2"/> for a history of the root server system.
 <t>Although this document is targeted at the global DNS, it also could apply to a private
 DNS as well. These terms are defined in <xref target="RFC8499"/>.</t>
 
+<t>Some systems serve a copy of the full root zone on the same server as the resolver,
+such as is described in <xref target="RFC8806"/>.
+In such a setup, the resolver primes its cache using the same methods as described in the rest of this document.</t>
 
 <section title="Content of Priming Information">
 
@@ -184,7 +189,7 @@ sometimes as comments and sometimes as data consumed by the software.
 For example, IANA's "Root Hints File" at &lt;https://www.internic.net/domain/named.root&gt;
 is derived directly from the root zone and contains all of the addresses
 of the root server identifiers found in the root zone.
-It is in DNS master file format, and includes the root server identifiers.
+It is in DNS zone file presentation format, and includes the root server identifiers.
 Although there is no harm to adding such information, it is not useful in
 the root priming process.</t>
 
@@ -303,7 +308,8 @@ because, historically, some root servers have returned fewer.</t>
 <section title='Completeness of the Response' anchor='primrespsize'>
 
 <t>At the time this document is published,
-there are 13 root servers. Each has one IPv4 address and one IPv6 address.
+there are 13 root server operators operating a total of more than 1500 root server instances.
+Each has one IPv4 address and one IPv6 address.
 Not even counting the NS RRset, the combined size of all the A and AAAA RRsets
 exceeds the original 512-octet payload limit from <xref target="RFC1035"/>.</t>
 
@@ -385,6 +391,8 @@ if its chain of queries comes to a zone that is signed, but not for those that a
 </references>
 
 <references title="Informative References">
+
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8806.xml"/>
 
 <reference anchor="RSSAC023v2"
 target="https://www.icann.org/en/system/files/files/rssac-023-17jun20-en.pdf">
