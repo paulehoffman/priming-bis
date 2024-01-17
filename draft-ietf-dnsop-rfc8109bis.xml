@@ -120,6 +120,8 @@ less sexist and more technically accurate.</t>
 
 <t>Added a note about priming and RFC 8806.</t>
 
+<t>Added a reference to research about discontinued root server addresses.</t>
+
 </list></t>
 
 </section>
@@ -163,11 +165,13 @@ correct and complete when shipped, but may become out of date over time.</t>
 This list has been stable since 1997, but the IPv4 and IPv6 addresses
 for the root server identifiers sometimes change.
 Research shows that after those addresses change, some resolvers never
-get the new addresses.
-Therefore, it is important that resolvers be able to cope with change,
+get the new addresses; for example, see <xref target="OLD-J"/>.</t>
+
+<t>Therefore, it is important that resolvers be able to cope with change,
 even without relying upon configuration updates to be applied by their operator.
-Root server identifier and address changes are the main reasons that resolvers need to do priming instead
-of just going from a configured list to get a full and accurate list of root servers.
+Root server identifier and address changes are the main reasons that resolvers
+need to use priming to get a full and accurate list of root servers,
+instead of just using a statically configured list.
 </t>
 
 <t>
@@ -202,7 +206,7 @@ the root priming process.</t>
 
 <section title='Priming Queries'>
 
-<t>A priming query is a DNS query used to get the root server information in a resolver.
+<t>A priming query is a DNS query whose response provides root server names and addresses.
 It has a QNAME of ".", a QTYPE of NS, and a QCLASS of IN;
 it is sent to one of the addresses in the configuration for the recursive resolver.
 The priming query can be sent over either UDP or TCP. If the query is sent over UDP,
@@ -396,6 +400,17 @@ if its chain of queries comes to a zone that is signed, but not for those that a
 <references title="Informative References">
 
 <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8806.xml"/>
+
+<reference anchor="OLD-J"
+target="https://indico.dns-oarc.net/event/24/contributions/378/">
+<front>
+<title>Thirteen Years of 'Old J Root'</title>
+<author initials='D.' surname='Wessels' fullname='Duane Wessels'>
+<organization/>
+</author>
+<date year="2015"/></front>
+</reference>
+
 
 <reference anchor="RSSAC023v2"
 target="https://www.icann.org/en/system/files/files/rssac-023-17jun20-en.pdf">
