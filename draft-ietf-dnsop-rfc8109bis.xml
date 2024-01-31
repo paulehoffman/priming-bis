@@ -54,7 +54,8 @@
 cache. The result is that the resolver gets both a current NS Resource Record Set (RRset) for the root
 zone and the necessary address information for reaching the root servers.</t>
 
-<t>This document, when published, obsoletes RFC 8109.</t>
+<t>This document, when published, obsoletes RFC 8109.
+See <xref target="changes"/> for the list of changes from RFC 8109.</t>
 
 </abstract>
 
@@ -84,7 +85,7 @@ will have stale data that could cause slower resolution.</t>
 <t>This document only deals with recursive name servers (recursive resolvers,
 resolvers) for the IN class.</t>
 
-<section title='Changes from RFC 8109'>
+<section title='Changes from RFC 8109' anchor='changes'>
 
 <t>This document obsoletes <xref target="RFC8109"/>. The significant changes from RFC 8109
 are:
