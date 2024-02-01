@@ -335,7 +335,9 @@ root servers are not setting the TC bit when omitting addresses from the Additio
 <t>Note that <xref target="RFC9471"/> updates <xref target="RFC1035"/> with respect to the use of the TC bit.
 It says "If message size constraints prevent the inclusion of all glue records for in-domain name servers,
 the server must set the TC (Truncated) flag to inform the client that the response is incomplete
-and that the client should use another transport to retrieve the full response."</t>
+and that the client should use another transport to retrieve the full response."
+Note, however, the root server addresses are not glue records, so setting the TC bit in truncated responses from
+the root servers is not required by <xref target="RFC9471"/>.</t>
 
 </section>
 
