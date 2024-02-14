@@ -12,7 +12,7 @@
 <?rfc toc='yes'?>
 <?rfc tocindent='no'?>
 
-<rfc docName="draft-ietf-dnsop-rfc8109bis-03" ipr="trust200902" category="bcp" obsoletes="8109" consensus="yes"
+<rfc docName="draft-ietf-dnsop-rfc8109bis-04" ipr="trust200902" category="bcp" obsoletes="8109" consensus="yes"
   xmlns:xi="http://www.w3.org/2001/XInclude">
 
 <front>
@@ -96,7 +96,8 @@ are:
 
 <t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
 
-<t>Added paragraph about RFC 9471 and requirements on authoritative servers and the TC bit.</t>
+<t>Added paragraph about RFC 9471 and requirements on authoritative servers and the TC bit.
+This clarified the role of glue records and truncation for responses from the root zone.</t>
 
 <t>Changed "man-in-the-middle" to "machine-in-the-middle" to be both
 less sexist and more technically accurate.</t>
