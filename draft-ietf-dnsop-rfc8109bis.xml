@@ -266,7 +266,7 @@ SHOULD be used for priming.</t>
 <section title='DNSSEC with Priming Queries' anchor="dnssec_prime">
 
 <t>The root NS RRset is signed and can be validated by a DNSSEC validating resolver.
-At the time this document is published, the addresses for the names in the root NS RRset are in the "root-server.net" zone.
+At the time this document is published, the addresses for the names in the root NS RRset are in the "root-servers.net" zone.
 All root servers are also authoritative for the "root-server.net" zone,
 which allows priming responses to include the appropriate root name server A and AAAA RRsets.
 However, because at the time this document is published the "root-servers.net" zone is not signed,
