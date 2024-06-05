@@ -12,7 +12,7 @@
 <?rfc toc='yes'?>
 <?rfc tocindent='no'?>
 
-<rfc docName="draft-ietf-dnsop-rfc8109bis-04" ipr="trust200902" category="bcp" obsoletes="8109" consensus="yes"
+<rfc docName="draft-ietf-dnsop-rfc8109bis-05" ipr="trust200902" category="bcp" obsoletes="8109" consensus="yes"
   xmlns:xi="http://www.w3.org/2001/XInclude">
 
 <front>
@@ -265,22 +265,30 @@ SHOULD be used for priming.</t>
 
 <section title='DNSSEC with Priming Queries' anchor="dnssec_prime">
 
-<t>The resolver MAY set the DNSSEC OK (DO) bit. At the time of publication,
-there is little use to performing DNSSEC validation on the priming query.
-At the time this document is published, all root server names end in "root-servers.net" and the AAAA and A RRsets
-for the root server names reside in the "root-servers.net" zone. All root servers are also
-authoritative for this zone, allowing priming responses to include the appropriate root
-name server A and AAAA RRsets. But, because the "root-servers.net" zone is not
-signed at the time this document is published, these RRsets cannot be validated.</t>
+<t>The root NS RRset is signed and can be validated by a DNSSEC validating resolver.
+At the time this document is published, the addresses for the names in the root NS RRset are in the "root-servers.net" zone.
+All root servers are also authoritative for the "root-servers.net" zone,
+which allows priming responses to include the appropriate root name server A and AAAA RRsets.
+However, because at the time this document is published the "root-servers.net" zone is not signed,
+the root name server A and AAAA RRsets cannot be validated.
+An attacker that is able to provide a spoofed priming response can provide alternative A and AAAA RRsets
+and thus fool a resolver into considering addresses under the control of the attacker to be authoritative for the root zone.</t>
 
-<t>A machine-in-the-middle attack on the priming query could direct a resolver to a rogue root
-name server.  Note, however, that a validating resolver will not accept responses for signed TLDs from
-rogue root servers if they are different from the real responses because the resolver
-has a trust anchor for the root and the answers from the root are signed. Thus, if there
-is a machine-in-the-middle attack on the priming query, the results for a validating
-resolver for signed TLDs could be a denial of service, 
-or the attacker seeing queries while returning good answers,
-but not the resolver's accepting the bad responses; however, for unsigned TLDs, the attack would be successful.</t>
+<t>A rogue root name server can view all queries from the resolver to the root and alter all unsigned parts of responses,
+such as the parent side NS RRsets and glue in referral responses.
+A resolver can be fooled into trusting child (TLD) NS addresses that are under the control of the attacker as being authoritative if the resolver:
+
+<ul>
+<li>follows referrals from a rogue root server,</li>
+<li>and does not explicitly query the authoritative NS RRset at the apex of the child (TLD) zone,</li>
+<li>and does not explicitly query for the authoritative A and AAAA RRsets for the child (TLD) NS RRsets.</li>
+</ul>
+
+With such resolvers, an attacker that controls a rogue root server effectively controls the entire domain name space
+and can view all queries and alter all unsigned data undetected.</t>
+
+<t>An attacker controlling a rogue root name server also has complete control over all unsigned delegations,
+and over the entire domain name space in case of non DNSSEC validating resolvers.</t>
 
 <t>If the "root-servers.net" zone is later signed, or if the root servers are named in a
 different zone and that zone is signed, having DNSSEC validation for the priming queries
