@@ -181,7 +181,7 @@ See <xref target="RSSAC023v2"/> for a history of the root server system.
 </t>
 
 <t>Although this document is targeted at the global DNS, it also could apply to a private
-DNS as well. These terms are defined in <xref target="RFC8499"/>.</t>
+DNS as well. These terms are defined in <xref target="RFC9499"/>.</t>
 
 <t>Some systems serve a copy of the full root zone on the same server as the resolver,
 such as is described in <xref target="RFC8806"/>.
