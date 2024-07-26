@@ -193,13 +193,13 @@ In such a setup, the resolver primes its cache using the same methods as describ
 The priming information in software may be in any format that gives the software the
 addresses associated with at least some of the root server identifiers.</t>
 
-<t>Some software has configuration that also contains the root server identifiers,
+<t>Some software has configuration that also contains the root server identifiers (such as "L.ROOT-SERVERS.NET"),
 sometimes as comments and sometimes as data consumed by the software.
 For example, IANA's "Root Hints File" at &lt;https://www.internic.net/domain/named.root&gt;
 is derived directly from the root zone and contains all of the addresses
 of the root server identifiers found in the root zone.
 It is in DNS zone file presentation format, and includes the root server identifiers.
-Although there is no harm to adding such information, it is not useful in
+Although there is no harm to adding these names, they are not useful in
 the root priming process.</t>
 
 </section>
