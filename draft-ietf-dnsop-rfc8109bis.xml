@@ -100,7 +100,7 @@ are:
 This clarified the role of glue records and truncation for responses from the root zone.</t>
 
 <t>Changed "man-in-the-middle" to "machine-in-the-middle" to be both
-less sexist and more technically accurate.</t>
+more inclusive and more technically accurate.</t>
 
 <t>Clarified that there are other effects of machine-in-the-middle attacks.</t>
 
@@ -160,15 +160,14 @@ The scenario used in that description, that of a recursive server that is also
 authoritative, is no longer as common.</t>
 
 <t>The configured list of IP addresses for the root servers usually comes from the
-vendor or distributor of the recursive server software. This list is usually
-correct and complete when shipped, but may become out of date over time.</t>
+vendor or distributor of the recursive server software.
+Although this list is generally accurate and complete at the time of distribution,
+it may become outdated over time.</t>
 
 <t>The domain names for the root servers are called the
 "root server identifiers".
-This list has been stable since 1997, but the IPv4 and IPv6 addresses
-for the root server identifiers sometimes change.
-Research shows that after those addresses change, some resolvers never
-get the new addresses; for example, see <xref target="OLD-J"/>.</t>
+Although this list has remained stable since 1997, the associated IPv4 and IPv6 addresses for these root server identifiers occasionally change.
+Research indicates that, following such changes, certain resolvers fail to update to the new addresses; for further details, refer to <xref target="OLD-J"/>.</t>
 
 <t>Therefore, it is important that resolvers are able to cope with change,
 even without relying upon configuration updates to be applied by their operator.
@@ -215,8 +214,8 @@ it is sent to one of the addresses in the configuration for the recursive resolv
 The priming query can be sent over either UDP or TCP. If the query is sent over UDP,
 the source port SHOULD be randomly selected (see <xref target='RFC5452'/>) to hamper on-path attacks.
 DNS cookies <xref target='RFC7873'/> can also be used to hamper on-path attacks.
-The Recursion Desired (RD) bit MAY be set to 0 or 1, although the meaning of it being set to 1 is
-undefined for priming queries.</t>
+The Recursion Desired (RD) bit SHOULD be set to 0. The meaning when RD is set
+to 1 is undefined for priming queries and outside the scope of this document.</t>
 
 <t>The recursive resolver SHOULD use EDNS0 <xref target='RFC6891'/> for priming
 queries and SHOULD announce and handle a reassembly size of at least 1024 octets
@@ -327,8 +326,8 @@ because, historically, some root servers have returned fewer.</t>
 <section title='Completeness of the Response' anchor='primrespsize'>
 
 <t>At the time this document is published,
-there are 13 root server operators operating a total of more than 1500 root server instances.
-Each has one IPv4 address and one IPv6 address.
+there are 13 root server operators operating a total of more than 1,500 root server instances.
+Each instance has one IPv4 address and one IPv6 address.
 The combined size of all the A and AAAA RRsets
 exceeds the original 512-octet payload limit from <xref target="RFC1035"/>.</t>
 
