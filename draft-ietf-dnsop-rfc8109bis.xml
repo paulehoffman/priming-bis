@@ -138,6 +138,7 @@ appear in all capitals, as shown here.</t>
 
 <t>
 See <xref target="RSSAC026v2"/> for terminology that relates to the root server system.
+See <xref target="RFC9499"/> for terminology that relates to the DNS in general.
 </t>
 
 
@@ -208,7 +209,7 @@ the root priming process.</t>
 
 <section title='Priming Queries'>
 
-<t>A priming query is a DNS query whose response provides root server names and addresses.
+<t>A priming query is a DNS query whose response provides root server identifiers and addresses.
 It has a QNAME of ".", a QTYPE of NS, and a QCLASS of IN;
 it is sent to one of the addresses in the configuration for the recursive resolver.
 The priming query can be sent over either UDP or TCP. If the query is sent over UDP,
@@ -285,7 +286,7 @@ A resolver can be fooled into trusting child (TLD) NS addresses that are under t
 </ul>
 
 With such resolvers, an attacker that controls a rogue root server effectively controls the entire domain name space
-and can view all queries and alter all unsigned data undetected.</t>
+and can view all queries and alter all unsigned data undetected unless other protections are configured at the resolver.</t>
 
 <t>An attacker controlling a rogue root name server also has complete control over all unsigned delegations,
 and over the entire domain name space in case of non DNSSEC validating resolvers.</t>
