@@ -85,49 +85,6 @@ will have stale data that could cause slower resolution.</t>
 <t>This document only deals with recursive name servers (recursive resolvers,
 resolvers) for the IN class.</t>
 
-<section title='Changes from RFC 8109' anchor='changes'>
-
-<t>This document obsoletes <xref target="RFC8109"/>. The significant changes from RFC 8109
-are:
-
-<list style="symbols">
-
-<t>Added section on the content of priming information.</t>
-
-<t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
-
-<t>Added paragraph about RFC 9471 and requirements on authoritative servers and the TC bit.
-This clarified the role of glue records and truncation for responses from the root zone.</t>
-
-<t>Changed "man-in-the-middle" to "machine-in-the-middle" to be both
-more inclusive and more technically accurate.</t>
-
-<t>Clarified that there are other effects of machine-in-the-middle attacks.</t>
-
-<t>Clarified language for root server domain names as "root server identifiers".</t>
-
-<t>Added short discussion of post-priming strategies.</t>
-
-<t>Added informative references to RSSAC documents.</t>
-
-<t>Added short discussion about this document and private DNS.</t>
-
-<t>Clarified that machine-in-the-middle attacks could be successful for non-signed TLDs.</t>
-
-<t>Added discussion of where resolvers that pre-fetch should get the root NS addresses.</t>
-
-<t>Elevated the expectations in "Expected Properties of the Priming Response" to MUST-level.</t>
-
-<t>Clarified that "currently" means at the time that this document is published.</t>
-
-<t>Added a note about priming and RFC 8806.</t>
-
-<t>Added a reference to research about discontinued root server addresses.</t>
-
-</list></t>
-
-</section>
-
 <section title='Terminology'>
 
 <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -140,7 +97,6 @@ appear in all capitals, as shown here.</t>
 See <xref target="RSSAC026v2"/> for terminology that relates to the root server system.
 See <xref target="RFC9499"/> for terminology that relates to the DNS in general.
 </t>
-
 
 </section>
 
@@ -445,6 +401,49 @@ target="https://www.icann.org/en/system/files/files/rssac-026-lexicon-12mar20-en
 </reference>
    
 </references>
+
+<section title='Changes from RFC 8109' anchor='changes'>
+
+<t>This document obsoletes <xref target="RFC8109"/>. The significant changes from RFC 8109
+are:
+
+<list style="symbols">
+
+<t>Added section on the content of priming information.</t>
+
+<t>Added paragraph about no expectation that the TC bit in responses will be set.</t>
+
+<t>Added paragraph about RFC 9471 and requirements on authoritative servers and the TC bit.
+This clarified the role of glue records and truncation for responses from the root zone.</t>
+
+<t>Changed "man-in-the-middle" to "machine-in-the-middle" to be both
+more inclusive and more technically accurate.</t>
+
+<t>Clarified that there are other effects of machine-in-the-middle attacks.</t>
+
+<t>Clarified language for root server domain names as "root server identifiers".</t>
+
+<t>Added short discussion of post-priming strategies.</t>
+
+<t>Added informative references to RSSAC documents.</t>
+
+<t>Added short discussion about this document and private DNS.</t>
+
+<t>Clarified that machine-in-the-middle attacks could be successful for non-signed TLDs.</t>
+
+<t>Added discussion of where resolvers that pre-fetch should get the root NS addresses.</t>
+
+<t>Elevated the expectations in "Expected Properties of the Priming Response" to MUST-level.</t>
+
+<t>Clarified that "currently" means at the time that this document is published.</t>
+
+<t>Added a note about priming and RFC 8806.</t>
+
+<t>Added a reference to research about discontinued root server addresses.</t>
+
+</list></t>
+
+</section>
 
 <section title='Acknowledgements'>
 
