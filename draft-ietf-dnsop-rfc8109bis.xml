@@ -51,7 +51,7 @@
 <abstract>
 
 <t>This document describes the queries that a DNS resolver should emit to initialize its
-cache. The result is that the resolver gets both a current NS Resource Record Set (RRset) for the root
+cache. The result is that the resolver gets both a current NS resource record set (RRset) for the root
 zone and the necessary address information for reaching the root servers.</t>
 
 <t>This document, when published, obsoletes RFC 8109.
@@ -169,7 +169,7 @@ for the root server identifiers sometimes change.
 Research shows that after those addresses change, some resolvers never
 get the new addresses; for example, see <xref target="OLD-J"/>.</t>
 
-<t>Therefore, it is important that resolvers be able to cope with change,
+<t>Therefore, it is important that resolvers are able to cope with change,
 even without relying upon configuration updates to be applied by their operator.
 Root server identifier and address changes are the main reasons that resolvers
 need to use priming to get a full and accurate list of root servers,
@@ -356,7 +356,7 @@ There are no requirements on the number of root server addresses that a root ser
 
 <section title='Post-Priming Strategies'>
 
-<t>When a resolver has a zone's NS RRset in cache, and it gets a query
+<t>When a resolver has a zone's NS RRset in cache, and it receives a query
 for a domain in that zone that cannot be answered from its cache,
 the resolver has to choose which NS to send queries to.
 (This statement is as true for the root zone as for any other zone in the DNS.)
