@@ -201,7 +201,7 @@ is derived directly from the root zone and contains all of the addresses
 of the root server identifiers found in the root zone.
 It is in DNS zone file presentation format, and includes the root server identifiers.
 Although there is no harm to adding these names, they are not useful in
-the root priming process.</t>
+the priming process.</t>
 
 </section>
 
@@ -213,8 +213,9 @@ the root priming process.</t>
 It has a QNAME of ".", a QTYPE of NS, and a QCLASS of IN;
 it is sent to one of the addresses in the configuration for the recursive resolver.
 The priming query can be sent over either UDP or TCP. If the query is sent over UDP,
-the source port SHOULD be randomly selected (see <xref target='RFC5452'/>) to reduce the chance of on-path attacks. The
-Recursion Desired (RD) bit MAY be set to 0 or 1, although the meaning of it being set to 1 is
+the source port SHOULD be randomly selected (see <xref target='RFC5452'/>) to hamper on-path attacks.
+DNS cookies <xref target='RFC7873'/> can also be used to hamper on-path attacks.
+The Recursion Desired (RD) bit MAY be set to 0 or 1, although the meaning of it being set to 1 is
 undefined for priming queries.</t>
 
 <t>The recursive resolver SHOULD use EDNS0 <xref target='RFC6891'/> for priming
@@ -406,6 +407,7 @@ if its chain of queries comes to a zone that is signed, but not for those that a
    <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4033.xml"/>
    <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.5452.xml"/>
    <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.6891.xml"/>
+   <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.7873.xml"/>
    <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8109.xml"/>
    <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
    <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9471.xml"/>
